@@ -91,6 +91,10 @@
 }
 
 .actions {
-    width: 100px;
-    background-color: aqua;
+    .more-btn {
+        font-size: 2rem;
+        margin-left: 28px;
+        background-color: transparent;
+        padding: 8px;
+    }
 }
