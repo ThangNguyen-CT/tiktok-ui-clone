@@ -6,7 +6,12 @@ import MenuItem from './MenuItem';
 import Header from './Header';
 import { useState } from 'react';
 const cx = classNames.bind(styles);
-function Menu({ children, Items = [], onChange = () => {} }) {
+function Menu({
+    children,
+    Items = [],
+    hideOnClick = false,
+    onChange = () => {},
+}) {
     const [history, setHistory] = useState([{ data: Items }]);
     const currentHistory = history[history.length - 1];
 
@@ -32,6 +37,7 @@ function Menu({ children, Items = [], onChange = () => {} }) {
     return (
         <Tippy
             interactive
+            hideOnClick={hideOnClick}
             delay={[0, 800]}
             placement="bottom-end"
             render={(attrs) => (
@@ -47,7 +53,7 @@ function Menu({ children, Items = [], onChange = () => {} }) {
                                 }}
                             />
                         )}
-                        {renderItems()}
+                        <div className={cx('menu-body')}>{renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}

@@ -1,11 +1,13 @@
+import config from '~/configs';
+
 import Home from '~/pages/Home';
 import Following from '~/pages/Following';
 import Upload from '~/pages/Upload';
 import Profile from '~/pages/Profile';
-import HeaderOnly from '~/Layouts/DefaultLayout/HeaderOnly';
+import HeaderOnly from '~/layouts/DefaultLayout/HeaderOnly';
 export const publicRouters = [
-    { path: '/', component: Home },
-    { path: '/profile/:nickname', component: Profile, layout: HeaderOnly },
-    { path: '/following', component: Following },
-    { path: '/upload', component: Upload, layout: HeaderOnly },
+    { path: config.routes.home, component: Home },
+    { path: config.routes.profile, component: Profile },
+    { path: config.routes.following, component: Following },
+    { path: config.routes.upload, component: Upload, layout: HeaderOnly },
 ];
