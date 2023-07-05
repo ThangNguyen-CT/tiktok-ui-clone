@@ -8,9 +8,13 @@ import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
 
-function AccountItem({ data }) {
+function AccountItem({ data, onClickHide }) {
     return (
-        <Link to={`/profile/${data.nickname}`} className={cx('wrapper')}>
+        <Link
+            to={`/profile/${data.nickname}`}
+            className={cx('wrapper')}
+            onClick={onClickHide}
+        >
             <Image
                 className={cx('avatar')}
                 src={data.avatar}
