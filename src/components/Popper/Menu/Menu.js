@@ -34,7 +34,12 @@ function Menu({
             );
         });
     };
-
+    const handleResetToFisrtPage = () => {
+        setHistory((prev) => prev.slice(0, 1));
+    };
+    const handleReset = () => {
+        setHistory((prev) => prev.slice(0, prev.length - 1));
+    };
     return (
         <Tippy
             interactive
@@ -47,18 +52,14 @@ function Menu({
                         {history.length > 1 && (
                             <Header
                                 title={currentHistory.title}
-                                onBack={() => {
-                                    setHistory((prev) =>
-                                        prev.slice(0, prev.length - 1),
-                                    );
-                                }}
+                                onBack={handleReset}
                             />
                         )}
                         <div className={cx('menu-body')}>{renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}
-            onHidden={() => setHistory((prev) => prev.slice(0, 1))}
+            onHidden={handleResetToFisrtPage}
         >
             {children}
         </Tippy>

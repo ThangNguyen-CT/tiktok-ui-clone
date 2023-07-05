@@ -28,7 +28,6 @@ import Image from '~/components/Image/Image';
 import Search from '~/components/Searchs/Search';
 
 const cx = classNames.bind(styles);
-const currentUser = true;
 
 const MENU_ITEMS = [
     {
@@ -62,6 +61,7 @@ const MENU_ITEMS = [
 ];
 
 function Header() {
+    const currentUser = true;
     //Handle logic
     const handleMenuChange = (menuitem) => {
         switch (menuitem.type) {
